@@ -29,18 +29,17 @@ $(document).ready(function () {
      ****************************************************/
 
     $('.navbar-toggler').on('click', function () {
-        $('body,html').css('overflow', 'hidden');
+
+        var mobileNav = $('#mobile-nav');
+
         if (mobileNav.hasClass('open')) {
             mobileNav.fadeOut('fast').removeClass('open');
+            $('body,html').css('overflow', 'initial');
         } else {
             mobileNav.fadeIn('fast');
             $('#mobile-nav').addClass('open');
+            $('body,html').css('overflow', 'hidden');
         }
-    });
-
-    $('#mobile-nav .close').on('click', function () {
-        $('body,html').css('overflow', 'initial');
-        $('#mobile-nav').fadeOut('fast');
     });
 
 
