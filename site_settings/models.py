@@ -4,6 +4,17 @@ from wagtail.admin.edit_handlers import FieldPanel
 from wagtail.contrib.settings.models import BaseSetting, register_setting
 
 
+
+@register_setting
+class SocialMediaSettings(BaseSetting):
+
+    social_media_header = models.CharField(max_length=255, default='Other ways to stalk me')
+
+    panels = (
+        FieldPanel("social_media_header")
+    )
+
+
 @register_setting
 class SocialMediaSettings(BaseSetting):
 
