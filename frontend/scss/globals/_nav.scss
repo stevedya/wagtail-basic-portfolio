@@ -59,5 +59,33 @@
       width: 100%;
     }
   }
+}
 
+/*
+    This is for the slide down sticky nav, it uses and translate on desktop and top on mobile.
+*/
+html {
+   &[data-scroll-dir-y="1"] {
+    .navbar[data-scroll="out"] {
+            top: -100px;
+
+            @include media-breakpoint-up(md) {
+                top: 0;
+                transform: translateY(-100%);
+            }
+        }
+    }
+
+  &[data-scroll-dir-y="0"],
+  &[data-scroll-dir-y="-1"] {
+    .navbar[data-scroll="out"] {
+            top: 0;
+            position: fixed;
+              box-shadow: 0px 9px 15px rgba(0, 0, 0, 0.27);
+
+            @include media-breakpoint-up(md) {
+                transform: translateY(0%);
+            }
+        }
+    }
 }
