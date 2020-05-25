@@ -1,0 +1,23 @@
+.richtext-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+
+  @include media-breakpoint-up(lg) {
+    &.left {
+      float: left;
+      margin-right: 20px;
+      margin-left: -100px;
+      margin-bottom: 0;
+      width: initial;
+    }
+
+    &.right {
+      float: right;
+      margin-left: 20px;
+      margin-right: -100px;
+      margin-bottom: 0;
+    }
+  }
+
+}

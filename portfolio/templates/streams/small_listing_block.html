@@ -1,0 +1,24 @@
+{% load wagtailimages_tags %}
+
+<section class="large-section small-listing-block">
+    <div class="container">
+        <div class="row justify-content-center">
+            {% for card in self.cards %}
+                {% image card.image fill-500x300 as img %}
+                <div class="col-md-6">
+                <a class="large-card small-card" href="{% if card.internal_link %}{{ card.internal_link.url }}{% else %}{{ card.external_link }}{% endif %}">
+                    {% image self.image fill-800x475 as img %}
+                    <img src="{{ img.url }}" alt="{{ img.alt }}">
+                    <div class="large-card__text text-{{ self.text_alignment }}">
+                        <h3>{{ card.title }}</h3>
+                    </div>
+                    <div class="large-card-button">
+                        <span class="btn btn-default">View</span>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</section>
+

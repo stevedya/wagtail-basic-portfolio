@@ -1,0 +1,21 @@
+{% load wagtailimages_tags %}
+
+<section class="large-section large-listing-block">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <a class="large-card" href="{{ url }}">
+                    {% image self.image fill-800x475 as img %}
+                    <img src="{{ img.url }}" alt="{{ img.alt }}">
+                    <div class="large-card__text text-{{ self.text_alignment }}">
+                        <h2>{{ self.title }}</h2>
+                    </div>
+                    <div class="large-card-button">
+                        <span class="btn btn-default">View</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
