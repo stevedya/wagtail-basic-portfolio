@@ -24,13 +24,18 @@ $(document).ready(function () {
     Splitting({target: ['.rich-text h3', '.splitting']});
 
 
-/****************************************************
- * Mobile Nav Toggle
- ****************************************************/
+    /****************************************************
+     * Mobile Nav Toggle
+     ****************************************************/
 
     $('.navbar-toggler').on('click', function () {
         $('body,html').css('overflow', 'hidden');
-        $('#mobile-nav').fadeIn('fast');
+        if (mobileNav.hasClass('open')) {
+            mobileNav.fadeOut('fast').removeClass('open');
+        } else {
+            mobileNav.fadeIn('fast');
+            $('#mobile-nav').addClass('open');
+        }
     });
 
     $('#mobile-nav .close').on('click', function () {
@@ -63,10 +68,10 @@ $(document).ready(function () {
 
         // define movement of panels
         var wipeAnimation = new TimelineMax()
-        // animate to second panel
-            .to("#horizontalGallerySlide", 0.5, {z: -150})	// move back in 3D space
-            .to("#horizontalGallerySlide", 1, {x: "-33%"})	// move in to first panel
-            .to("#horizontalGallerySlide", 0.5, {z: 0})		// move back to origin in 3D space
+            // animate to second panel
+            .to("#horizontalGallerySlide", 0.5, {z: -150})    // move back in 3D space
+            .to("#horizontalGallerySlide", 1, {x: "-33%"})    // move in to first panel
+            .to("#horizontalGallerySlide", 0.5, {z: 0})        // move back to origin in 3D space
             // animate to third panel
             .to("#horizontalGallerySlide", 0.5, {z: -150, delay: 1})
             .to("#horizontalGallerySlide", 1, {x: "-66%"})
