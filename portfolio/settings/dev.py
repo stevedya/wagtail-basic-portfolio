@@ -31,6 +31,20 @@ CACHES = {
     }
 }
 
+DEBUG_TOOLBAR_PANELS = [
+    'debug_toolbar.panels.timer.TimerPanel',
+    'debug_toolbar.panels.settings.SettingsPanel',
+    'debug_toolbar.panels.sql.SQLPanel',
+    'debug_toolbar.panels.staticfiles.StaticFilesPanel',
+    'debug_toolbar.panels.templates.TemplatesPanel',
+    'debug_toolbar.panels.cache.CachePanel',
+]
+DEBUG_TOOLBAR_CONFIG = {
+    'ENABLE_STACKTRACES': False,
+    'PROFILER_MAX_DEPTH': 5,
+    'SHOW_TEMPLATE_CONTEXT': False,
+}
+
 try:
     from .local import *
 except ImportError:
