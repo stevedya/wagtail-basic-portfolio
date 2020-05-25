@@ -12,16 +12,17 @@ ALLOWED_HOSTS = ['*']
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 INSTALLED_APPS += [
-    # 'debug_toolbar',
+    'debug_toolbar',
     'wagtail.contrib.styleguide',
 ]
 
-# MIDDLEWARE += [
-#     'debug_toolbar.middleware.DebugToolbarMiddleware',
-# ]
+MIDDLEWARE += [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+]
 
 INTERNAL_IPS = [
     '127.0.0.1',
+    '172.17.0.1',
 ]
 
 CACHES = {

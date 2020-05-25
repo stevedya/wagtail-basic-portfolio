@@ -14,10 +14,8 @@ RUN apt-get update && apt-get install -y \
       git \
       wget \
       vim \
-      # Python, remove 3 for wagtail sites
       python3-dev \
       python3-pip \
-      # Postgres, needed for some pip modules
       libpq-dev \
       postgresql \
       postgresql-contrib
