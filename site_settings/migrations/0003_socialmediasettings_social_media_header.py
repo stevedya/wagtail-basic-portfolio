@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='socialmediasettings',
             name='social_media_header',
-            field=models.CharField(default='Other ways to stalk me', max_length=255),
+            field=models.CharField(default='Follow Me', max_length=255),
         ),
     ]
