@@ -19,9 +19,11 @@
             </ul>
         </div>
 
-        <h4>
-            Other ways to stalk me
-        </h4>
+        {% if settings.site_settings.SocialMediaSettings.social_media_header %}
+            <h4>
+                {{ settings.site_settings.SocialMediaSettings.social_media_header }}
+            </h4>
+        {% endif %}
 
         <div class="py-3 py-md-4 footer-social-icons">
             {% if settings.site_settings.SocialMediaSettings.github %}

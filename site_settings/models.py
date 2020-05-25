@@ -7,6 +7,7 @@ from wagtail.contrib.settings.models import BaseSetting, register_setting
 @register_setting
 class SocialMediaSettings(BaseSetting):
 
+    social_media_header = models.CharField(max_length=255, default='Follow Me')
     github = models.URLField(
         blank=True,
         help_text='Enter your GitHub URL'
@@ -29,6 +30,7 @@ class SocialMediaSettings(BaseSetting):
     )
 
     panels = [
+        FieldPanel("social_media_header"),
         FieldPanel("github"),
         FieldPanel("snapchat"),
         FieldPanel("instagram"),
