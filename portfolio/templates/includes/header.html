@@ -3,6 +3,11 @@
 {% get_nav_items as header_links %}
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" data-scroll>
+
+    <a href="/" class="mr-auto d-lg-none navbar-brand">
+        <h5 class="mb-0 pl-md-4">{{ self.get_site.site_name }}</h5>
+    </a>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
