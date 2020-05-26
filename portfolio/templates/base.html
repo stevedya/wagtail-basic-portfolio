@@ -45,6 +45,20 @@
     {% block extra_css %}
         {# Override this in templates to add extra stylesheets #}
     {% endblock %}
+
+    {# Google Analytics Tracking #}
+    {% if  settings.site_settings.GoogleAnalytics.tacking_id %}
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id={{ settings.site_settings.GoogleAnalytics.tacking_id }}"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', '{{ settings.site_settings.GoogleAnalytics.tacking_id }}');
+        </script>
+    {% endif %}
 </head>
 
 <body>
@@ -52,7 +66,7 @@
 
 {% block header %}
     {% include "includes/header.html" %}
-    <main  style="display: none">
+    <main style="display: none">
     {% block banner %}{% endblock %}
 {% endblock %}
 

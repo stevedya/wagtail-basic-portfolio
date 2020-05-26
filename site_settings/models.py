@@ -37,3 +37,12 @@ class SocialMediaSettings(BaseSetting):
         FieldPanel("linkedin"),
         FieldPanel("facebook"),
     ]
+
+
+@register_setting
+class GoogleAnalytics(BaseSetting):
+    tracking_id = models.CharField(max_length=20, blank=True, help_text='Enter in your google analytics tracking ID to enable analytics')
+
+    panels = [
+        FieldPanel("tracking_id"),
+    ]
