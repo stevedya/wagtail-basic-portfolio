@@ -1,6 +1,7 @@
 from django.db import models
 
 from wagtail.admin.edit_handlers import FieldPanel
+from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.contrib.settings.models import BaseSetting, register_setting
 
 
@@ -45,4 +46,22 @@ class GoogleAnalytics(BaseSetting):
 
     panels = [
         FieldPanel("tracking_id"),
+    ]
+
+
+@register_setting
+class SEOSettings(BaseSetting):
+    site_description = models.CharField(max_length=250, blank=True, help_text='The description you want to show when someone google searches you')
+
+    social_sharing_image = models.ForeignKey(
+        'wagtailimages.Image',
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
+        related_name='+',
+    )
+
+    panels = [
+        FieldPanel("site_description"),
+        ImageChooserPanel("social_sharing_image"),
     ]

@@ -1,4 +1,4 @@
-{% load static wagtailuserbar %}
+{% load static wagtailuserbar wagtailimages_tags %}
 
 <!DOCTYPE html>
 <html class="no-js" lang="en" style="background: #171717;">
@@ -8,22 +8,23 @@
         {% block title %}{% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}{% endblock %}
         {% block title_suffix %}{% with self.get_site.site_name as site_name %}{% if site_name %} -
             {{ site_name }}{% endif %}{% endwith %}{% endblock %}</title>
-    <meta name="description" content="The portfolio of steven steinwand. Photography, web development and about me."/>
+    <meta name="description" content="{{ settings.site_settings.SEOSettings.site_description }}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    {% image settings.site_settings.SEOSettings.social_sharing_image fill-1200x630 as social_share_img %}
 
     <meta property="og:title" content="{{ self.seo_title }}"/>
     <meta property="og:type" content="Website"/>
     <meta property="og:url" content="https://{{ request.site.hostname }}{{ request.path }}"/>
-    <meta property="og:image" content="{% static 'img/og/facebook.png' %}"/>
-    <meta property="og:description" content="{{ self.seo_description }}"/>
-    <meta property="og:site_name" content="Steven Steinwand"/>
+    <meta property="og:image" content="https://{{ request.site.hostname }}{{ social_share_img.url }}"/>
+    <meta property="og:description" content="{{ settings.site_settings.SEOSettings.site_description }}"/>
+    <meta property="og:site_name" content="{{ self.get_site.site_name }}"/>
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@steven_ts">
-    <meta name="twitter:title" content="{{ self.seo_title }}">
-    <meta name="twitter:description" content="{{ self.seo_description }}">
-    <meta name="twitter:creator" content="@steven_ts">
-    <meta name="twitter:image:src" content="{% static 'img/og/twitter.png' %}">
+    <meta name="twitter:site" content="https://{{ request.site.hostname }}{{ request.path }}">
+    <meta name="twitter:title" content="{{ self.get_site.site_name }}">
+    <meta name="twitter:description" content="{{ settings.site_settings.SEOSettings.site_description }}">
+    <meta name="twitter:image:src" content="https://{{ request.site.hostname }}{{ social_share_img.url }}">
 
     {% comment %}
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/favicons/apple-touch-icon.png' %}">
