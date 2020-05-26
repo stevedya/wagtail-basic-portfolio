@@ -47,7 +47,7 @@
     {% endblock %}
 
     {# Google Analytics Tracking #}
-    {% if  settings.site_settings.GoogleAnalytics.tacking_id %}
+    {% if  settings.site_settings.GoogleAnalytics.tracking_id %}
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id={{ settings.site_settings.GoogleAnalytics.tacking_id }}"></script>
         <script>
@@ -56,7 +56,7 @@
                 dataLayer.push(arguments);
             }
             gtag('js', new Date());
-            gtag('config', '{{ settings.site_settings.GoogleAnalytics.tacking_id }}');
+            gtag('config', '{{ settings.site_settings.GoogleAnalytics.tracking_id }}');
         </script>
     {% endif %}
 </head>
